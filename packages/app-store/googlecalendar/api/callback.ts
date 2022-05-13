@@ -24,6 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const appKeys = await getAppKeysFromSlug("google-calendar");
   if (typeof appKeys.client_id === "string") client_id = appKeys.client_id;
   if (typeof appKeys.client_secret === "string") client_secret = appKeys.client_secret;
+  console.log(appKeys);
   if (!client_id) return res.status(400).json({ message: "Google client_id missing." });
   if (!client_secret) return res.status(400).json({ message: "Google client_secret missing." });
 
